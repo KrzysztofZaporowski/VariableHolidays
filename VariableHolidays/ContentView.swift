@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     let dataFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd MMMM yyyy - hh:mm"
+        formatter.dateFormat = "dd MMMM yyyy - HH:mm"
         return formatter
     }()
     @State var dateStart = Date()
@@ -19,6 +19,8 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Text("Date calculator").font(.title)
+            Spacer()
+            Text("Today is: \(Date(), formatter: dataFormatter)").foregroundStyle(.secondary).font(.title2)
             Spacer()
             DatePicker("Enter first date", selection:
                         $dateStart, in: ...dateEnd, displayedComponents: .date)
